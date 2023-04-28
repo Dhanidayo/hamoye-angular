@@ -1,1 +1,125 @@
-/* You can add global styles to this file, and also import other style files */
+/* layout */
+:root {
+    --primary: rgb(14, 35, 111);
+    --neutral: #fff;
+    --dark: #555;
+  }
+  body {
+    background: #f1f1f1;
+    margin: 0;
+    font-family: Arial, Arial, Helvetica, sans-serif;
+  }
+  
+  /* auth forms */
+  form.login {
+    max-width: 400px;
+    margin: 40px auto;
+    padding: 20px;
+    background: var(--neutral);
+    border-radius: 4px;
+  }
+  
+  form.login h3 {
+    text-align: center;
+  }
+  
+  label, input {
+    display: block;
+  }
+  input {
+    padding: 10px;
+    margin-top: 10px;
+    margin-bottom: 20px;
+    width: 100%;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    box-sizing: border-box;
+  }
+  form button {
+    background: var(--primary);
+    border: 0;
+    color: var(--neutral);
+    padding: 10px;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  header {
+    background: var(--neutral);
+  }
+  header .container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 10px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  header a {
+    color: var(--primary);
+    text-decoration: none;
+  }
+  
+  .pages{
+    max-width: 1400px;
+    padding: 20px;
+    margin: 0 auto;
+  }
+  
+  /* dashboard */
+  .dashboard {
+    width: 100%;
+  }
+  .dashboard h3 {
+    text-align: center;
+    color: var(--primary);
+  }
+  .flights {
+    width: 50%;
+    margin: auto;
+  }
+  #flights-table {
+    border-collapse: collapse;
+    width: 100%;
+  }
+  
+  #flights-table td, #flights-table th {
+    border: 1px solid #ddd;
+    padding: 8px;
+    cursor: pointer;
+  }
+  
+  #flights-table tr:nth-child(even){background-color: #f2f2f2;}
+  
+  #flights-table tr:hover {background-color: #ddd;}
+  
+  #flights-table th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+    background-color: var(--dark);
+    color:  var(--neutral);
+  }
+  
+  /* navbar */
+  nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 95%;
+    margin: auto;
+  }
+  nav h1 {
+    color: var(--primary);
+  }
+
+  nav button {
+    background: var(--neutral);
+    color: var(--primary);
+    border: 2px solid var(--primary);
+    padding: 6px 10px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 1em;
+    margin-left: 10px;
+  }
