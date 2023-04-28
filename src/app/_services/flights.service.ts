@@ -1,23 +1,17 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
-import { map } from 'rxjs/operators';
+import axios from 'axios';
 
 @Injectable({
   providedIn: 'root',
 })
 export class FlightServices {
-  constructor(private httpClient: HttpClient) {}
+  constructor() {}
 
-  getFlights(): Observable<any> {
-    return this.httpClient
-      .get(
-        'https://opensky-network.org/api/flights/all?begin=1517227200&end=1517230800'
-      )
-      .pipe(
-        map((data) => {
-          return data;
-        })
-      );
+  getFlights() {
+    return axios.get('https://opensky-network.org/api/flights/all?begin=1517227200&end=1517230800', {
+      headers: {
+        Cookie: "XSRF-TOKEN=9a014e9f-274c-42d5-be87-597f0671e3ea",
+      },
+    });
   }
 }

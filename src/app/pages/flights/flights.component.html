@@ -1,6 +1,9 @@
-<nav>
-  <button onClick="{handleClick}">Log out</button>
-</nav>
+<header>
+  <nav>
+    <h1>{{ title }}</h1>
+    <button (click)="handleLogout()">Log out</button>
+  </nav>
+</header>
 
 <div class="dashboard">
   <h3>Flights arriving and departing from all airports</h3>
@@ -13,7 +16,6 @@
       </thead>
       <tbody>
         <tr *ngFor="let item of flights; let i = index">
-          <!-- <th class="th-id">{{serial + i}}</th> -->
           <td>
             {{ item.icao24 || "N/A" }}
           </td>
