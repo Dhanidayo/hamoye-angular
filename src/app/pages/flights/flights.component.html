@@ -11,11 +11,20 @@
     <table id="flights-table">
       <thead>
         <tr>
-          <th *ngFor="let head of headElements" scope="col">{{ head }}</th>
+          <th *ngFor="let head of headElements" scope="col">
+            {{ head }}
+          </th>
         </tr>
       </thead>
       <tbody>
-        <tr *ngFor="let item of flights; let i = index">
+        <ngx-spinner type="ball-beat"></ngx-spinner>
+        <tr
+          *ngFor="
+            let item of flights
+              | paginate : { itemsPerPage: 20, currentPage: p };
+            let i = index
+          "
+        >
           <td>
             {{ item.icao24 || "N/A" }}
           </td>
@@ -25,5 +34,6 @@
         </tr>
       </tbody>
     </table>
+    <pagination-controls (pageChange)="p = $event"></pagination-controls>
   </div>
 </div>

@@ -1,13 +1,15 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;500&family=Poppins&display=swap');
+
 /* layout */
 :root {
-    --primary: rgb(14, 35, 111);
+    --primary: #2199e8;
     --neutral: #fff;
     --dark: #555;
   }
   body {
     background: #f1f1f1;
     margin: 0;
-    font-family: Arial, Arial, Helvetica, sans-serif;
+    font-family: "Poppins";
   }
   
   /* auth forms */
@@ -22,12 +24,17 @@
   form.login h3 {
     text-align: center;
   }
+
+  button .login-btn {
+    background: var(--primary);
+    width: 100%;
+  }
   
   label, input {
     display: block;
   }
   input {
-    padding: 10px;
+    padding: 1rem 0.5rem;
     margin-top: 10px;
     margin-bottom: 20px;
     width: 100%;

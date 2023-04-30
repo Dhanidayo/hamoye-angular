@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { NgxSpinnerService } from 'ngx-spinner';
 import { FlightServices } from 'src/app/_services/flights.service';
 
 @Component({
@@ -11,8 +12,16 @@ export class FlightsComponent implements OnInit {
   title: string = 'Hamoye';
   loading = false;
   flights: any;
+  p: number = 1;
+  typeSelected: string;
 
-  constructor(private router: Router, private flightServices: FlightServices) {}
+  constructor(
+    private router: Router,
+    private spinnerService: NgxSpinnerService,
+    private flightServices: FlightServices
+  ) {
+    this.typeSelected = 'ball-fussion';
+  }
 
   ngOnInit() {
     this.getFlightsServices();
@@ -20,16 +29,18 @@ export class FlightsComponent implements OnInit {
 
   getFlightsServices(): any {
     this.loading = true;
+    this.spinnerService.show();
     this.flightServices
       .getFlights()
       .then((res) => {
         this.loading = false;
         this.flights = res.data;
-        console.log("Flights", this.flights);
+        this.spinnerService.hide();
+        console.log('Flights', this.flights);
       })
       .catch((err) => {
         this.loading = false;
-        console.log('cant get flightServices', err);
+        console.log("Can't get flightServices", err);
       });
   }
 

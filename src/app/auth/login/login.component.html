@@ -9,21 +9,21 @@
   <h2>Login</h2>
   <form #myForm="ngForm" (ngSubmit)="onSubmit(myForm.value)">
     <input
-      placeholder="user@hamoye.com"
-      type="text"
+      placeholder="Email"
+      type="email"
       name="email"
       required=""
       [(ngModel)]="user.email"
     />
     <input
-      placeholder="******"
+      placeholder="Password"
       type="password"
       name="password"
       required=""
       [(ngModel)]="user.password"
     />
     <div class="btn-div">
-      <button type="submit" [disabled]="!myForm.valid" (click)="goToDashboard()" class="login-btn">
+      <button type="submit" [disabled]="!myForm.valid" (click)="goToDashboard()">
         Login
       </button>
     </div>
