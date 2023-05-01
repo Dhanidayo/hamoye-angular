@@ -7,7 +7,6 @@ import { ReactiveFormsModule } from '@angular/forms';
 import axios from 'axios';
 
 import { FormsModule } from "@angular/forms";
-// import { ToastrModule } from "ngx-toastr";
 import { AppRoutingModule } from './app-routing.module';
 import { LoginComponent } from './auth/login/login.component';
 import { HeaderComponent } from './components/header/header.component';
@@ -29,7 +28,6 @@ import { FlightsComponent } from './pages/flights/flights.component';
     NgxSpinnerModule,
     BrowserAnimationsModule,
     ReactiveFormsModule,
-    // ToastrModule.forRoot()
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   providers: [],
