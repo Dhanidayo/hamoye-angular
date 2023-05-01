@@ -4,26 +4,54 @@
   </nav>
 </header>
 
-
 <div class="align-center">
   <h2>Login</h2>
-  <form #myForm="ngForm" (ngSubmit)="onSubmit(myForm.value)">
+  <form [formGroup]="myForm" (ngSubmit)="onSubmit(myForm.value)" novalidate>
     <input
       placeholder="Email"
       type="email"
-      name="email"
+      formControlName="email"
       required=""
-      [(ngModel)]="user.email"
     />
+    <div class="error-messages">
+      <ng-container *ngFor="let error of error_messages.email">
+        <div
+          class="error-message"
+          *ngIf="
+            myForm.controls['email'].hasError(error.type) &&
+            (myForm.controls['email'].dirty || myForm.controls['email'].touched)
+          "
+        >
+          {{ error.message }}
+        </div>
+      </ng-container>
+    </div>
     <input
       placeholder="Password"
       type="password"
-      name="password"
+      formControlName="password"
+      ng-minlength="6"
       required=""
-      [(ngModel)]="user.password"
     />
+    <div class="error-messages">
+      <ng-container *ngFor="let error of error_messages.password">
+        <div
+          class="error-message"
+          *ngIf="
+            myForm.controls['password'].hasError(error.type) &&
+            (myForm.controls['password'].dirty || myForm.controls['password'].touched)
+          "
+        >
+          {{ error.message }}
+        </div>
+      </ng-container>
+    </div>
     <div class="btn-div">
-      <button type="submit" [disabled]="!myForm.valid" (click)="goToDashboard()">
+      <button
+        type="submit"
+        [disabled]="!myForm.valid"
+        (click)="goToDashboard()"
+      >
         Login
       </button>
     </div>

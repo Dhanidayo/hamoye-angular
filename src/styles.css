@@ -50,6 +50,14 @@
     border-radius: 4px;
     cursor: pointer;
   }
+
+  .error-message {
+    color: red;
+    font-size: 0.75rem;
+    margin-top: -1em;
+    margin-left: 1.25em;
+    height: 2em;
+  }
   
   header {
     background: var(--neutral);

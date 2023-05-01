@@ -3,6 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import {NgxPaginationModule} from 'ngx-pagination';
 import { NgxSpinnerModule } from 'ngx-spinner';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ReactiveFormsModule } from '@angular/forms'; 
 import axios from 'axios';
 
 import { FormsModule } from "@angular/forms";
@@ -27,6 +28,7 @@ import { FlightsComponent } from './pages/flights/flights.component';
     NgxPaginationModule,
     NgxSpinnerModule,
     BrowserAnimationsModule,
+    ReactiveFormsModule,
     // ToastrModule.forRoot()
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],

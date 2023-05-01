@@ -104,5 +104,7 @@
       }
     }
   },
-  "defaultProject": "hamoye-angular"
+  "cli": {
+    "analytics": "31ec8f28-74c7-4893-997d-38339143ef9f"
+  }
 }
