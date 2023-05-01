@@ -44,7 +44,7 @@ export class FlightsComponent implements OnInit {
       });
   }
 
-  headElements = ['Airport', 'Time', 'Arrival', 'Departure'];
+  headElements = ['Airport', 'Time', 'Arriving', 'Departing'];
 
   handleLogout() {
     this.router.navigate(['/login']);
