@@ -26,11 +26,11 @@
           "
         >
           <td>
-            {{ item.icao24 || "N/A" }}
+            {{ item.estDepartureAirport || "N/A" }}
           </td>
-          <td>{{ item.firstSeen || "N/A" }}</td>
-          <td>{{ item.estArrivalAirport || "N/A" }}</td>
-          <td>{{ item.estDepartureAirport || "N/A" }}</td>
+          <td>{{ formatTime(item.firstSeen * 1000) || "N/A" }}</td>
+          <td>{{ item.estArrivalAirportHorizDistance || "N/A" }}</td>
+          <td>{{ item.estDepartureAirportHorizDistance || "N/A" }}</td>
         </tr>
       </tbody>
     </table>

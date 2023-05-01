@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { NgxSpinnerService } from 'ngx-spinner';
 import { FlightServices } from 'src/app/_services/flights.service';
-
+import * as moment from 'moment';
 @Component({
   selector: 'app-flights',
   templateUrl: './flights.component.html',
@@ -45,6 +45,10 @@ export class FlightsComponent implements OnInit {
   }
 
   headElements = ['Airport', 'Time', 'Arriving', 'Departing'];
+
+  formatTime(time: any) {
+    return moment(time).format('YYYY-MM-DDTkk:mm A').split('T')[1];
+  }
 
   handleLogout() {
     this.router.navigate(['/login']);
