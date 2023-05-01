@@ -4,7 +4,6 @@ import {NgxPaginationModule} from 'ngx-pagination';
 import { NgxSpinnerModule } from 'ngx-spinner';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ReactiveFormsModule } from '@angular/forms'; 
-import axios from 'axios';
 
 import { FormsModule } from "@angular/forms";
 import { AppRoutingModule } from './app-routing.module';
