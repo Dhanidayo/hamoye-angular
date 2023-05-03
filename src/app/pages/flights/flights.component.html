@@ -7,7 +7,33 @@
 
 <div class="dashboard">
   <h3>Flights arriving and departing from all airports</h3>
-  <div class="flights">
+  <div class="flex-container">
+    <div>
+      <span>{{totalFlights}} flights</span>
+    </div>
+      <!-- <form [formGroup]="searchTime" class="date-container"> -->
+        <div class="date-container">
+          <label>Pick time:</label>
+          <input
+            type="datetime-local"
+            name="datetime"
+            id="datetime"
+            [value]="dateValue"
+            (change)="onDateChange($event)"
+          />
+          <button type="button" (click)="handleSearch()" class="search-btn">
+            Search
+          </button>
+        </div>
+      <!-- </form> -->
+    <div class="reset-btn tooltip" (click)="reset()">
+      <!-- <i class='fas fa-undo'></i> -->
+      reset
+      <span class="tooltiptext">reset back to current flights</span>
+    </div>
+  </div>
+  <div class="error" *ngIf="isData === false">{{errorMsg}}</div>
+  <div class="flights" *ngIf="isData === true">
     <table id="flights-table">
       <thead>
         <tr>
@@ -34,7 +60,7 @@
         </tr>
       </tbody>
     </table>
-    <pagination-controls (pageChange)="p = $event"></pagination-controls>
+    <pagination-controls (pageChange)="p = $event" class="pagination-box"></pagination-controls>
   </div>
 </div>
 
