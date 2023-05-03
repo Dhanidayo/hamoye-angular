@@ -1,11 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import {
-  FormGroup,
-  FormBuilder,
-  Validators,
-  FormControl,
-} from '@angular/forms';
 import { NgxSpinnerService } from 'ngx-spinner';
 import { FlightServices } from 'src/app/_services/flights.service';
 import * as moment from 'moment';
@@ -82,8 +76,7 @@ export class FlightsComponent implements OnInit {
   headElements = ['Airport', 'Time', 'Arriving', 'Departing'];
 
   formatTime(time: any) {
-    return moment(time).format('YYYY-MM-DDTkk:mm A');
-    // .split('T')[1];
+    return moment(time).format('YYYY-MM-DDTkk:mm A').split('T')[1];
   }
 
   onDateChange(event: any) {
@@ -91,8 +84,6 @@ export class FlightsComponent implements OnInit {
   }
 
   async handleSearch() {
-    // console.log("Date Value", this.dateValue);
-
     this.last2hrsSearch = this.flightServices.getLast2HrsWithParam(
       this.dateValue
     );

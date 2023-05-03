@@ -1,6 +1,11 @@
-import { Component, OnInit } from "@angular/core";
-import { FormBuilder, FormControl, FormGroup, Validators } from "@angular/forms";
-import { Router } from "@angular/router";
+import { Component } from '@angular/core';
+import {
+  FormBuilder,
+  FormControl,
+  FormGroup,
+  Validators,
+} from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -12,38 +17,45 @@ export class LoginComponent {
   myForm: FormGroup;
   user = {
     email: null,
-    password: null
+    password: null,
   };
 
   error_messages = {
-    'email': [
+    email: [
       { type: 'required', message: 'Email is required.' },
-      { type: 'pattern', message: 'please enter a valid email address.' }
+      { type: 'pattern', message: 'please enter a valid email address.' },
     ],
 
-    'password': [
+    password: [
       { type: 'required', message: 'password is required.' },
-      { type: 'minlength', message: 'Password should be a minumum of 6 characters.' },
+      {
+        type: 'minlength',
+        message: 'Password should be a minumum of 6 characters.',
+      },
     ],
-  }
+  };
 
-  constructor(private router: Router, public formBuilder: FormBuilder) // private toastr: ToastrService
-  {
+  constructor(private router: Router, public formBuilder: FormBuilder) {
     this.myForm = this.formBuilder.group({
-      email: new FormControl('', Validators.compose([
-        Validators.required,
-        Validators.pattern('[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$')
-      ])),
-      password: new FormControl('', Validators.compose([
-        Validators.required,
-        Validators.minLength(6),
-        Validators.maxLength(30)
-      ])),
-    })
+      email: new FormControl(
+        '',
+        Validators.compose([
+          Validators.required,
+          Validators.pattern('[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+.[a-zA-Z]{2,4}$'),
+        ])
+      ),
+      password: new FormControl(
+        '',
+        Validators.compose([
+          Validators.required,
+          Validators.minLength(6),
+          Validators.maxLength(30),
+        ])
+      ),
+    });
   }
 
-  ngOnInit() {
-  }
+  ngOnInit() {}
 
   login(user: any) {
     if (!user) {
@@ -54,7 +66,6 @@ export class LoginComponent {
 
   onSubmit(user: any) {
     this.login(user);
-    // this.toastr.show("User logged in successfully");
     alert('User logged in successfully');
     console.log(user);
   }
