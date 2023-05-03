@@ -28,7 +28,6 @@ export class FlightsComponent implements OnInit {
   selectedTimeStamp: any;
   last2hrsTimestamp: any;
   errorMsg: any;
-  faUndo: any;
 
   constructor(
     private router: Router,
