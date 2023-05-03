@@ -14,7 +14,7 @@ export class AuthServices {
   constructor(private router: Router, private toastr: ToastrService) {}
 
   success(): void {
-    this.toastr.success('Login Successful', "", {timeOut: 3000});
+    this.toastr.success('Login Successful', "", {timeOut: 2000});
   }
 
   error(value: any): void {
