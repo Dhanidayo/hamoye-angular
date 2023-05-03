@@ -3,6 +3,8 @@ import { Router } from '@angular/router';
 import { NgxSpinnerService } from 'ngx-spinner';
 import { FlightServices } from 'src/app/_services/flights.service';
 import * as moment from 'moment';
+import { FaIconLibrary } from '@fortawesome/angular-fontawesome';
+import { faUndo } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-flights',
@@ -26,11 +28,13 @@ export class FlightsComponent implements OnInit {
   selectedTimeStamp: any;
   last2hrsTimestamp: any;
   errorMsg: any;
+  faUndo: any;
 
   constructor(
     private router: Router,
     private spinnerService: NgxSpinnerService,
-    private flightServices: FlightServices
+    private flightServices: FlightServices,
+    private library: FaIconLibrary
   ) {
     this.typeSelected = 'ball-fussion';
     this.dateValue = moment(new Date()).format('YYYY-MM-DDTkk:mm');
@@ -38,6 +42,7 @@ export class FlightsComponent implements OnInit {
     this.last2hrs = this.flightServices.getLast2Hrs();
     this.beginTimestamp = this.flightServices.getTimeStamp(this.last2hrs);
     this.endTimeStamp = this.flightServices.getTimeStamp(this.currentDate);
+    library.addIcons(faUndo);
   }
 
   ngOnInit() {
