@@ -4,9 +4,10 @@ import {NgxPaginationModule} from 'ngx-pagination';
 import { NgxSpinnerModule } from 'ngx-spinner';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ReactiveFormsModule } from '@angular/forms'; 
-import { FontAwesomeModule, FaIconLibrary } from '@fortawesome/angular-fontawesome';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { FormsModule } from "@angular/forms";
 import { AppRoutingModule } from './app-routing.module';
+import { ToastrModule } from 'ngx-toastr';
 
 import { LoginComponent } from './auth/login/login.component';
 import { HeaderComponent } from './components/header/header.component';
@@ -29,6 +30,7 @@ import { FlightsComponent } from './pages/flights/flights.component';
     BrowserAnimationsModule,
     ReactiveFormsModule,
     FontAwesomeModule,
+    ToastrModule.forRoot(),
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   providers: [],

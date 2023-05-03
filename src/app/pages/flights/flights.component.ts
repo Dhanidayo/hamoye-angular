@@ -41,7 +41,7 @@ export class FlightsComponent implements OnInit {
     this.last2hrs = this.flightServices.getLast2Hrs();
     this.beginTimestamp = this.flightServices.getTimeStamp(this.last2hrs);
     this.endTimeStamp = this.flightServices.getTimeStamp(this.currentDate);
-    library.addIcons(faUndo);
+    this.library.addIcons(faUndo);
   }
 
   ngOnInit() {
@@ -59,7 +59,6 @@ export class FlightsComponent implements OnInit {
         this.flights = res.data;
         this.totalFlights = this.flights.length;
         this.spinnerService.hide();
-        // console.log('Flights', this.flights);
       })
       .catch((err) => {
         this.loading = false;

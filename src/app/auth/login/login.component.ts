@@ -5,7 +5,7 @@ import {
   FormGroup,
   Validators,
 } from '@angular/forms';
-import { Router } from '@angular/router';
+import { AuthServices } from 'src/app/_services/auth.service';
 
 @Component({
   selector: 'app-login',
@@ -23,19 +23,16 @@ export class LoginComponent {
   error_messages = {
     email: [
       { type: 'required', message: 'Email is required.' },
-      { type: 'pattern', message: 'please enter a valid email address.' },
+      { type: 'pattern', message: 'Please enter a valid email address.' },
     ],
 
-    password: [
-      { type: 'required', message: 'password is required.' },
-      {
-        type: 'minlength',
-        message: 'Password should be a minumum of 6 characters.',
-      },
-    ],
+    password: [{ type: 'required', message: 'Password is required.' }],
   };
 
-  constructor(private router: Router, public formBuilder: FormBuilder) {
+  constructor(
+    public formBuilder: FormBuilder,
+    private authService: AuthServices
+  ) {
     this.myForm = this.formBuilder.group({
       email: new FormControl(
         '',
@@ -44,33 +41,13 @@ export class LoginComponent {
           Validators.pattern('[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+.[a-zA-Z]{2,4}$'),
         ])
       ),
-      password: new FormControl(
-        '',
-        Validators.compose([
-          Validators.required,
-          Validators.minLength(6),
-          Validators.maxLength(30),
-        ])
-      ),
+      password: new FormControl('', Validators.compose([Validators.required])),
     });
   }
 
   ngOnInit() {}
 
-  login(user: any) {
-    if (!user) {
-      alert('please enter your email and password');
-    }
-    localStorage.setItem('current-user', user);
-  }
-
   onSubmit(user: any) {
-    this.login(user);
-    alert('User logged in successfully');
-    console.log(user);
-  }
-
-  goToDashboard() {
-    this.router.navigate(['/dashboard']);
+    this.authService.login(user);
   }
 }
