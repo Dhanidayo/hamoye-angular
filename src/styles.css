@@ -108,6 +108,7 @@
   .dashboard h3 {
     text-align: center;
     color: var(--primary);
+    margin: 2em 0 1em;
   }
 
   .flex-container {
