@@ -1,8 +1,11 @@
 # HamoyeAngular
 
-You can access the app with the following test Credentials:
+## Test Credentials:
 Email: user@hamoye.com
 Password: user123!
+
+## Hosted site link
+https://hamoye-angular.vercel.app
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.3.3.
 
