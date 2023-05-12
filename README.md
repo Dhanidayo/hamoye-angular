@@ -1,5 +1,9 @@
 # HamoyeAngular
 
+You can access the app with the following test Credentials:
+Email: user@hamoye.com
+Password: user123!
+
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.3.3.
 
 ## Development server
